@@ -1,0 +1,59 @@
+ampl: reset;
+model tareaA.runampl: 
+Gurobi 12.0.3:                Gurobi 12.0.3: optimal solution; objective 409670.9
+51 simplex iterations
+
+==================================================
+   RESULTADOS - MODELO BASE (Parte A)
+==================================================
+
+Costo Total Óptimo:  409670.90 USD
+
+=== Generación por Planta (MWh) ===
+Gen [*,*] (tr)
+:  Eolica Solar Termica    :=
+1    150      0   156
+2    180      0    95.4
+3    200      0    60.1
+4    250      0    10.1
+5    250      0    25.4
+6    200      0   136.6
+7    150     50   259
+8    120    150   342
+9    100    250   333.4
+10    80    350   304.4
+11    80    400   285
+12   100    400   295.6
+13   120    400   255.2
+14   150    380   224.8
+15   180    300   254.4
+16   220    200   334.8
+17   250    100   496.6
+18   280     20   638.4
+19   300      0   720
+20   280      0   689
+21   250      0   596.6
+22   200      0   483.4
+23   180      0   340.2
+24   150      0   227.4
+;
+
+
+=== Total Generado por Planta ===
+Solar      :  3000.00 MWh
+Eolica     :  4420.00 MWh
+Termica    :  7563.80 MWh
+
+=== Demanda Total por Ciudad ===
+Santiago     :  9985.80 MWh
+Concepcion   :  4998.00 MWh
+
+=== transmicion  por Ciudad ===
+Santiago     :  9985.80 MWh
+Concepcion   :  4998.00 MWh
+
+=== Verificación de Balance Global ===
+Demanda Total    : 14983.80 MWh
+Generación Total : 14983.80 MWh
+
+Modelo resuelto correctamente.

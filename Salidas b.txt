@@ -1,0 +1,132 @@
+ampl: reset;
+model tareaB.run;ampl: 
+Gurobi 12.0.3:                Gurobi 12.0.3: optimal solution; objective 418011.02
+186 simplex iterations
+1 branching node
+
+==================================================
+ RESULTADOS - MODELO AVANZADO (Parte B)
+==================================================
+
+Costo Total Óptimo:    418011.02 USD
+
+
+=== Estado de Encendido (On) ===
+On [*,*] (tr)
+:  Eolica Solar Termica    :=
+1     1      1      1
+2     1      1      1
+3     1      1      1
+4     1      1      0
+5     1      1      0
+6     1      1      0
+7     1      1      1
+8     1      1      1
+9     1      1      1
+10    1      1      1
+11    1      1      1
+12    1      1      1
+13    1      1      1
+14    1      1      1
+15    1      1      1
+16    1      1      1
+17    1      1      1
+18    1      1      1
+19    1      0      1
+20    1      0      1
+21    1      0      1
+22    1      0      1
+23    1      0      1
+24    1      0      1
+;
+
+
+=== Nivel de Baterías ===
+Ealm [*,*] (tr)
+:  Concepcion Santiago    :=
+1       0         0
+2       0        54.6
+3       0       172.1
+4      91.8      70.2
+5       0       136.6
+6       0         0
+7       0         0
+8       0         0
+9       0         0
+10      0         0
+11      0         0
+12      0         0
+13      0         0
+14    100.6     129.2
+15     46       429.4
+16    221.2     419.4
+17    285.6     358.4
+18    229.2     276.4
+19    122.2     163.4
+20     35.6      61
+21      0         0
+22      0         0
+23      0         0
+24      0         0
+;
+
+=== Total Generado por Planta ===
+Solar      :    3000.00 MWh
+Eolica     :    4420.00 MWh
+Termica    :    7563.80 MWh
+
+=== transmicion  por Ciudad ===
+Santiago     :  9985.80 MWh
+Concepcion   :  4998.00 MWh
+
+=== Energia almacenada ===
+Santiago   :     0.00 MWh
+Santiago   :    54.60 MWh
+Santiago   :   172.10 MWh
+Santiago   :    70.20 MWh
+Santiago   :   136.60 MWh
+Santiago   :     0.00 MWh
+Santiago   :     0.00 MWh
+Santiago   :     0.00 MWh
+Santiago   :     0.00 MWh
+Santiago   :     0.00 MWh
+Santiago   :     0.00 MWh
+Santiago   :     0.00 MWh
+Santiago   :     0.00 MWh
+Santiago   :   129.20 MWh
+Santiago   :   429.40 MWh
+Santiago   :   419.40 MWh
+Santiago   :   358.40 MWh
+Santiago   :   276.40 MWh
+Santiago   :   163.40 MWh
+Santiago   :    61.00 MWh
+Santiago   :     0.00 MWh
+Santiago   :     0.00 MWh
+Santiago   :     0.00 MWh
+Santiago   :     0.00 MWh
+Concepcion :     0.00 MWh
+Concepcion :     0.00 MWh
+Concepcion :     0.00 MWh
+Concepcion :    91.80 MWh
+Concepcion :     0.00 MWh
+Concepcion :     0.00 MWh
+Concepcion :     0.00 MWh
+Concepcion :     0.00 MWh
+Concepcion :     0.00 MWh
+Concepcion :     0.00 MWh
+Concepcion :     0.00 MWh
+Concepcion :     0.00 MWh
+Concepcion :     0.00 MWh
+Concepcion :   100.60 MWh
+Concepcion :    46.00 MWh
+Concepcion :   221.20 MWh
+Concepcion :   285.60 MWh
+Concepcion :   229.20 MWh
+Concepcion :   122.20 MWh
+Concepcion :    35.60 MWh
+Concepcion :     0.00 MWh
+Concepcion :     0.00 MWh
+Concepcion :     0.00 MWh
+Concepcion :     0.00 MWh
+
+Modelo resuelto correctamente.
