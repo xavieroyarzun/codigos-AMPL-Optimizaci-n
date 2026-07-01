@@ -1,0 +1,42 @@
+reset;
+
+model tareaA.mod;
+data tareaA.dat;
+
+option solver gurobi;
+solve;
+
+# ====================== RESULTADOS ======================
+
+printf "\n==================================================\n";
+printf "   RESULTADOS - MODELO BASE (Parte A)\n";
+printf "==================================================\n\n";
+
+printf "Costo Total Óptimo: %10.2f USD\n\n", CostoTotal;
+
+printf "=== Generación por Planta (MWh) ===\n";
+display Gen;
+
+printf "\n=== Total Generado por Planta ===\n";
+for {g in G} {
+    printf "%-10s : %8.2f MWh\n", g, sum{t in T} Gen[g,t];
+}
+
+printf "\n=== Demanda Total por Ciudad ===\n";
+for {c in C} {
+    printf "%-12s : %8.2f MWh\n", c, sum{t in T} Delta[c,t] * (1 + X/100);
+}
+printf "\n=== transmicion  por Ciudad ===\n";
+for {c in C} {
+    printf "%-12s : %8.2f MWh\n",c, sum{t in T}sum{g in G} Trans[g, c, t];
+}
+
+printf "\n=== Verificación de Balance Global ===\n";
+printf "Demanda Total    : %8.2f MWh\n", sum{c in C, t in T} Delta[c,t]*(1 + X/100);
+printf "Generación Total : %8.2f MWh\n", sum{g in G, t in T} Gen[g,t];
+
+
+
+
+    
+printf "\nModelo resuelto correctamente.\n";

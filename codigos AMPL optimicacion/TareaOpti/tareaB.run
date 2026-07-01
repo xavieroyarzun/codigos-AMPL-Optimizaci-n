@@ -1,0 +1,41 @@
+reset;
+
+model tareaB.mod;
+data tareaB.dat;
+
+option solver gurobi;
+
+solve;
+
+printf "\n==================================================\n";
+printf " RESULTADOS - MODELO AVANZADO (Parte B)\n";
+printf "==================================================\n\n";
+
+printf "Costo Total Óptimo: %12.2f USD\n\n", CostoTotal;
+
+
+
+printf "\n=== Estado de Encendido (On) ===\n";
+display On;
+
+printf "\n=== Nivel de Baterías ===\n";
+display Ealm;
+
+printf "=== Total Generado por Planta ===\n";
+for {g in G} {
+    printf "%-10s : %10.2f MWh\n", g, sum{t in T} Gen[g,t];
+}
+printf "\n=== transmicion  por Ciudad ===\n";
+for {c in C} {
+    printf "%-12s : %8.2f MWh\n",c, sum{t in T}sum{g in G} Trans[g, c, t];
+}
+
+
+printf "\n=== Energia almacenada ===\n";
+for {c in C, t in T} {
+    printf "%-10s : %8.2f MWh\n", c, Ealm[c,t];
+    }
+
+
+
+printf "\nModelo resuelto correctamente.\n";
