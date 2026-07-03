@@ -14,10 +14,10 @@ param Gamma{G} >= 0;
 param Theta{G, C} >= 0;
 param Phi{G, C} >= 0;
 
-param Alpha{G} >= 0;  #Umbral m´ınimo de generaci´on (Solar: 0, E´olica: 0, T´ermica: 150)
-param Beta{G} >= 0;   #Costo de encendido (Solar: 10, E´olica: 10, T´ermica: 800)
-param Epsilon{C} >= 0;#Capacidad de bater´ıas (Santiago: 1000, Concepci´on: 600)
-param Zeta{C} >= 0;   #Costo de almacenamiento
+param MinGen{G} >= 0;  #Umbral m´ınimo de generaci´on (Solar: 0, E´olica: 0, T´ermica: 150)
+param Sigma{G} >= 0;   #Costo de encendido (Solar: 10, E´olica: 10, T´ermica: 800)
+param Lambda{C} >= 0;#Capacidad de bater´ıas (Santiago: 1000, Concepci´on: 600)
+param Pi{C} >= 0;   #Costo de almacenamiento
 
 # Variables
 var Gen{G, T} >= 0;      # Energía generada por planta g en hora t
@@ -30,8 +30,8 @@ var Startup{G, T} binary;# Indicador de encendido en el periodo t
 minimize CostoTotal:
     sum{g in G, t in T} Gamma[g] * Gen[g,t]
   + sum{g in G, c in C, t in T} Theta[g,c] * Trans[g,c,t]
-  + sum{c in C, t in T} Zeta[c] * Ealm[c,t]
-  + sum{g in G, t in T} Beta[g] * Startup[g,t];
+  + sum{c in C, t in T} Pi[c] * Ealm[c,t]
+  + sum{g in G, t in T} Sigma[g] * Startup[g,t];
 
 # Restricciones
 
@@ -39,7 +39,7 @@ subject to CapacidadGen {g in G, t in T}:
     Gen[g,t] <= Omega2[g,t] * On[g,t];
 
 subject to UmbralMinimo {g in G, t in T}:
-    Gen[g,t] >= Alpha[g] * On[g,t];
+    Gen[g,t] >= MinGen[g] * On[g,t];
 
 subject to BalancePlanta {g in G, t in T}:
     Gen[g,t] = sum{c in C} Trans[g,c,t];
@@ -48,7 +48,7 @@ subject to CapTrans {g in G, c in C, t in T}:
     Trans[g,c,t] <= Phi[g,c];
 
 subject to CapBaterias {c in C, t in T}:
-    Ealm[c,t] <= Epsilon[c];
+    Ealm[c,t] <= Lambda[c];
 
 subject to BateriaInicial {c in C}:
     Ealm[c,1] = 0;
